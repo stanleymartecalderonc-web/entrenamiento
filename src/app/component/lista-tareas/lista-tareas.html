@@ -1,0 +1,48 @@
+<!-- Recorre las tareas. track permite a Angular identificar cada una por su ID. -->
+@for (item of tareas; track item.identificador) {
+
+    <!-- Muestra el título de la tarea mediante interpolación. -->
+    <p>{{item.titulo}}</p>
+
+    <!-- Consulta el estado de la tarea para mostrar el texto correspondiente. -->
+    @if (item.completada) {
+        <p>Completada</p>
+    } @else {
+        <p>No completada</p>
+    }
+
+    <!-- Al hacer clic, invierte y guarda el estado de esta tarea. -->
+    <button (click)="cambiarEstado(item)">
+
+        <!-- El texto indica la acción que realizará el botón. -->
+        @if (item.completada) {
+            marcar como pendiente
+        } @else {
+            completar tarea
+        }
+    </button>
+ 
+    <!-- al hacer clic , elimina una tarea por su identificador -->
+    <button (click)="eliminarTarea(item.identificador) ">Eliminar</button>
+
+}  @empty {"no hay tareas"}
+
+<!-- Añade dos saltos de línea. -->
+<br> <br>
+
+<!-- Agrupa el campo con el texto que lo identifica. -->
+<label>nueva tarea
+
+    <!--
+        type="text": permite escribir texto.
+        [(ngModel)]: conecta el campo con la propiedad nuevaTarea en ambos sentidos.
+        placeholder: muestra una ayuda cuando el campo está vacío.
+    -->
+    <input
+        [(ngModel)]="nuevaTarea"
+        type="text"
+        placeholder="Escribe una nueva tarea">
+
+    <!-- Al hacer clic, ejecuta el método agregarTarea del componente. -->
+    <button (click)="agregarTarea()">Agregar</button>
+</label>
