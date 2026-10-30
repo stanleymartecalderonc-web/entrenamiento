@@ -4,17 +4,27 @@ import { Component } from '@angular/core';
 // Permite usar ngModel para conectar el campo de texto con una propiedad.
 import { FormsModule } from '@angular/forms';
 
+
+
+
 // Define la estructura que debe tener cada tarea.
 interface tarea {
   // Número que identifica una tarea.
   identificador: number;
 
   // Texto de la tarea.
-  titulo: string;
+  titulo: string
 
   // Indica si está completada: true significa sí y false significa no.
   completada: boolean;
+
+    materia:string ;
+    
+    fechaEntrega:string;
 }
+
+
+
 
 // Configura el componente.
 @Component({
@@ -26,6 +36,9 @@ interface tarea {
 
   // Indica qué archivo contiene el HTML del componente.
   templateUrl: './lista-tareas.html',
+  styleUrl:'./lista-tarea.css',
+
+
 })
 
 
@@ -35,7 +48,7 @@ export class ListaTareas {
 
   cambiarEstado( tarea:tarea){
     tarea.completada = !tarea.completada
-    this.guardarTareas
+    this.guardarTareas()
   }
 
 
@@ -68,32 +81,14 @@ export class ListaTareas {
 
   // Guarda la lista de tareas. Cada elemento debe cumplir la interfaz tarea.
   tareas: tarea[] = [
-    // Primera tarea de ejemplo.
-    {
-      identificador: 1,
-      titulo: 'Tarea 1',
-      completada: false
-    },
-
-    // Segunda tarea: comienza completada.
-    {
-      identificador: 2,
-      titulo: 'Tarea 2',
-      completada: true
-    },
-
-    // Tercera tarea de ejemplo.
-    {
-      identificador: 3,
-      titulo: 'Tarea 3',
-      completada: false
-    }
   ];
 
 
 
   // Guarda el texto del input conectado mediante ngModel.
   nuevaTarea: string = '';
+  nuevaMateria:string = '';
+  nuevaFechaEntrega:string ='';
 
 
 
@@ -111,28 +106,39 @@ export class ListaTareas {
         return
       }
 
+      const materiaLimpia = this.nuevaMateria.trim()
+      if (materiaLimpia=== ''){
+        return
+      }
+      const fechaLimpia = this.nuevaFechaEntrega.trim()
+      if(fechaLimpia===''){
+        return
+      }
+
 
     // Añade un objeto nuevo al final del arreglo.
     this.tareas.push({
 
   
         
-
-
       // Usa el identificador actual y después aumenta el contador en uno.
       identificador: this.siguienteId++,
 
-      // Usa como título el texto escrito en el input.
+      // “Usa como título el texto sin espacios al principio ni al final.”
       titulo: tituloLimpio,
+      materia:materiaLimpia,
 
       // La nueva tarea comienza sin completar.
-      completada: false
+      completada: false,
+      fechaEntrega:this.nuevaFechaEntrega,
     });
 
     // Vacía la propiedad y, mediante ngModel, también el campo de texto.
     this.nuevaTarea = '';
-
     this.guardarTareas()
+    this.nuevaMateria ='';
+    this.nuevaFechaEntrega = '';
+
 
   }
 }

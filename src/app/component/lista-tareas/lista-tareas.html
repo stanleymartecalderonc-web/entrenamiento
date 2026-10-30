@@ -1,48 +1,69 @@
+
+
+<h1 >Mi agenda universitaria</h1>
+
+<!-- Agrupa el campo con el texto que lo identifica. -->
+<div class="formulario-tareas">
+
+
+         <label for="titulo">Tarea</label>
+         <input id="titulo"
+         [(ngModel)]="nuevaTarea"
+         type="text"
+         placeholder="Escribe una nueva tarea">
+
+
+        <label for="materia">Materia</label>
+            <input id="materia"
+            [(ngModel)]="nuevaMateria"
+            type="text"
+            placeholder="Escribe una nueva materia"
+        >
+     
+
+        <input
+        [(ngModel)]="nuevaFechaEntrega"
+        type="date"
+        >
+    <!-- Al hacer clic, ejecuta el método agregarTarea del componente. -->
+    <button (click)="agregarTarea()">Agregar</button>
+</div>
+
 <!-- Recorre las tareas. track permite a Angular identificar cada una por su ID. -->
 @for (item of tareas; track item.identificador) {
+    
+    <div class="tarjeta-tarea">
+         <!-- Muestra el título de la tarea mediante interpolación. -->
+         <p class="titulo-tarea" [class.completada]="item.completada">{{item.titulo}}</p>
 
-    <!-- Muestra el título de la tarea mediante interpolación. -->
-    <p>{{item.titulo}}</p>
 
-    <!-- Consulta el estado de la tarea para mostrar el texto correspondiente. -->
-    @if (item.completada) {
-        <p>Completada</p>
-    } @else {
-        <p>No completada</p>
-    }
+         <p class="materia-tarea">{{item.materia}}</p>
 
-    <!-- Al hacer clic, invierte y guarda el estado de esta tarea. -->
-    <button (click)="cambiarEstado(item)">
+         <p class="fecha-tarea">Entrega {{item.fechaEntrega}}</p>
 
-        <!-- El texto indica la acción que realizará el botón. -->
+         <!-- Consulta el estado de la tarea para mostrar el texto correspondiente. -->
         @if (item.completada) {
-            marcar como pendiente
-        } @else {
-            completar tarea
+        <p>Completada</p>
+         } @else {
+         <p>No completada</p>
         }
-    </button>
+  
+         <!-- Al hacer clic, invierte y guarda el estado de esta tarea. -->
+          <button class="boton-estado"(click)="cambiarEstado(item)">
+
+            <!-- El texto indica la acción que realizará el botón. -->
+             @if (item.completada) {
+            marcar como pendiente
+            } @else {
+            completar tarea
+            }
+        </button>
  
-    <!-- al hacer clic , elimina una tarea por su identificador -->
-    <button (click)="eliminarTarea(item.identificador) ">Eliminar</button>
+        <!-- al hacer clic , elimina una tarea por su identificador -->
+        <button class="boton-eliminar" (click)="eliminarTarea(item.identificador) ">Eliminar</button>
+    </div>
 
 }  @empty {"no hay tareas"}
 
-<!-- Añade dos saltos de línea. -->
-<br> <br>
 
-<!-- Agrupa el campo con el texto que lo identifica. -->
-<label>nueva tarea
 
-    <!--
-        type="text": permite escribir texto.
-        [(ngModel)]: conecta el campo con la propiedad nuevaTarea en ambos sentidos.
-        placeholder: muestra una ayuda cuando el campo está vacío.
-    -->
-    <input
-        [(ngModel)]="nuevaTarea"
-        type="text"
-        placeholder="Escribe una nueva tarea">
-
-    <!-- Al hacer clic, ejecuta el método agregarTarea del componente. -->
-    <button (click)="agregarTarea()">Agregar</button>
-</label>

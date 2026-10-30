@@ -1,0 +1,133 @@
+.formulario-tareas{
+    display: grid;
+    gap:10px;
+    max-width: 400px;
+    margin:auto;
+    background-color: white;
+    padding: 24px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    box-sizing: border-box;
+}
+
+
+.tarjeta-tarea{
+    background-color: white;
+    border: 1px solid #4e4c4c;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+    
+}
+
+
+.formulario-tareas input{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+.formulario-tareas button{
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 18px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.formulario-tareas button:hover{
+    background-color: #002679;
+}
+
+.tarjeta-tarea button{
+    padding: 10px 14px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-right: 8px;
+    margin-bottom: 8px;
+}
+
+.tarjeta-tarea button:hover {
+    background-color: #4e4c4c;
+}
+
+.boton-estado{
+    background-color: #15803d;
+}
+
+.boton-estado:hover{
+    background-color: #166534;
+}
+
+.boton-eliminar {
+    background-color: #dc2626;
+}
+
+.boton-eliminar:hover{
+    background-color: #b91c1c;
+}
+
+
+.titulo-tarea{
+font-size: 20px;
+font-weight: 700;
+color: #1f2937;
+margin: 0 0 12px;
+}
+
+.titulo-tarea.completada{
+    text-decoration: line-through;
+    color: #6b7280;
+}
+
+.materia-tarea{
+    color: #475569; 
+    font-size: 20px; 
+     margin: 0 0 8px;
+}
+
+
+.fecha-tarea  {
+  color: #64748b;
+  font-size: 15px; 
+  margin: 0 0 16px;
+}
+
+:host{
+    display: block;
+    min-height: 100vh;
+    background-color: #f1f5f9;
+    padding: 32px 16px;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+h1{
+    text-align: center;
+    color: #2f4364;
+    font-size: 35px;
+    margin: 0 0 28px;
+}
+
+.formulario-tareas input:focus{
+   border-color: #2563eb.
+   outline: 2px solid #bfdbfe.
+   outline-offset: 2px.
+
+}
