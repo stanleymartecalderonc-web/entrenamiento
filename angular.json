@@ -1,9 +1,10 @@
+
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "cli": {
     "packageManager": "npm",
-    "analytics": "d8e6a73b-25ab-49a2-93cf-701e50b58f03"
+    "analytics": "994c7d3c-9ae7-455b-9dcb-de2e3c644be4"
   },
   "newProjectRoot": "projects",
   "projects": {
@@ -26,6 +27,7 @@
               }
             ],
             "styles": [
+              "src/material-theme.scss",
               "src/styles.css"
             ],
             "server": "src/main.server.ts",

@@ -1,6 +1,10 @@
 
-
-<h1 >Mi agenda universitaria</h1>
+ 
+    <header class="encabezado">
+        <mat-icon>school</mat-icon>
+      <h1>Mi agenda universitaria</h1>
+      <p>Organiza tus materias en un solo lugar</p>
+    </header>
 
 <!-- Agrupa el campo con el texto que lo identifica. -->
 <div class="formulario-tareas">
@@ -21,12 +25,14 @@
         >
      
 
-        <input
-        [(ngModel)]="nuevaFechaEntrega"
-        type="date"
-        >
+         <label for="fecha-entrega">Fecha</label>
+         <input id="fecha-entrega"
+         [(ngModel)]="nuevaFechaEntrega"
+         type="date"
+         >
+
     <!-- Al hacer clic, ejecuta el método agregarTarea del componente. -->
-    <button (click)="agregarTarea()">Agregar</button>
+    <button (click)="agregarTarea()"><mat-icon>add</mat-icon>Agregar</button>
 </div>
 
 <!-- Recorre las tareas. track permite a Angular identificar cada una por su ID. -->
@@ -42,28 +48,33 @@
          <p class="fecha-tarea">Entrega {{item.fechaEntrega}}</p>
 
          <!-- Consulta el estado de la tarea para mostrar el texto correspondiente. -->
-        @if (item.completada) {
-        <p>Completada</p>
+       
+         @if (item.completada) {
+        <p class="estado-completado">Completada</p>
          } @else {
-         <p>No completada</p>
+         <p class="estado-pendiente">No completada</p>
         }
   
          <!-- Al hacer clic, invierte y guarda el estado de esta tarea. -->
-          <button class="boton-estado"(click)="cambiarEstado(item)">
+         
+         <div class="acciones-tarea">
+         <button class="boton-estado"(click)="cambiarEstado(item)">
 
             <!-- El texto indica la acción que realizará el botón. -->
              @if (item.completada) {
+                <mat-icon>undo</mat-icon>
             marcar como pendiente
             } @else {
+                <mat-icon>check_circles</mat-icon>
             completar tarea
             }
         </button>
  
         <!-- al hacer clic , elimina una tarea por su identificador -->
-        <button class="boton-eliminar" (click)="eliminarTarea(item.identificador) ">Eliminar</button>
+        <button class="boton-eliminar" (click)="eliminarTarea(item.identificador) "><mat-icon>delete</mat-icon>Eliminar</button>
+        </div>
     </div>
 
-}  @empty {"no hay tareas"}
-
+}  @empty {<p class="lista-vacia">no hay tareas</p>}
 
 

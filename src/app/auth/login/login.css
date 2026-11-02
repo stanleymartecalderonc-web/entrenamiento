@@ -1,0 +1,80 @@
+:host{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 24px 16px;
+    box-sizing: border-box;
+    background-color: #f1f5f9;
+    font-family: Arial, sans-serif;
+}
+
+.tarjeta-login {
+ display: grid;
+gap: 12px;
+width: 100%;
+max-width: 400px;
+padding: 28px;
+box-sizing: border-box;
+background-color: white;
+border-radius: 12px;
+box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+
+.tarjeta-login h1{
+     color: #2563eb; 
+     text-align: center; 
+      margin: 0 0 16px; 
+       font-size: 28px;
+}
+
+.tarjeta-login label{
+     color: #334155; 
+     font-size: 14px; 
+      font-weight: 600;
+}
+
+.tarjeta-login input{
+    width: 100%; 
+    padding: 12px; 
+    border: 1px solid #ccc; 
+    border-radius: 8px; 
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.tarjeta-login button{
+    background-color: #2563eb; 
+    color: white; 
+    border: none; 
+    border-radius: 8px; 
+    padding: 12px; 
+    font-size: 16px; 
+    font-weight: 600;  
+    cursor: pointer; 
+    margin-top: 8px;
+}
+
+.tarjeta-login button:hover{
+    background-color: #1d4ed8;
+}
+
+.tarjeta-login input:focus{
+    border-color: #2563eb; 
+    outline: 2px solid #bfdbfe; 
+    outline-offset: 2px;
+}
+.tarjeta-login h1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.tarjeta-login h1 mat-icon{
+ font-size: 40px;
+ width: 40px;
+ height: 40px;
+ flex-shrink: 0;
+}
